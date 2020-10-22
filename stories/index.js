@@ -63,12 +63,13 @@ const sample = {
     {
       id: 2,
       logo_path: "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
-      name: "Walt Disney Pictures",
+      name: "Walt Disney Picture",
       origin_country: "US"
     }
   ],
   production_countries: [
     {
+      id: 1,
       iso_3166_1: "US",
       name: "United States of America"
     }

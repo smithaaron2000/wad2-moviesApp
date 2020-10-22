@@ -65,6 +65,7 @@ const sample = {
   ],
   production_countries: [
     {
+      id: 1,
       iso_3166_1: "US",
       name: "United States of America"
     }
