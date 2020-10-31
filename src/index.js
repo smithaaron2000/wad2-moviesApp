@@ -6,12 +6,15 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import MovieReviewPage from "./pages/movieReviewPage";
+import SiteHeader from './components/siteHeader'
+
 
 
 const App = () => {
   return (
     <BrowserRouter>
     <div className="jumbotron">
+    <SiteHeader />      {/* New Header  */}
       <div className="container-fluid">
         <ul className="navbar-nav text-black">
           <li className="nav-item">
