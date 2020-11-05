@@ -7,6 +7,7 @@ import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
+import UpcomingMoviesPage from "./pages/upcomingMoviesPage"
 
 
 
@@ -27,8 +28,14 @@ const App = () => {
               Favorites
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link " to="/movies/upcoming">
+              Upcoming Movies
+            </Link>
+          </li>
         </ul>
         <Switch>
+        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoritesMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
