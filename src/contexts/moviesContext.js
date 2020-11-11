@@ -29,7 +29,7 @@ const reducer = (state, action) => {
       case "add-watchlist":
       return {
         upcoming: state.upcoming.map((m) =>
-          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+          m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
         ),
         movies: [...state.movies],
       };
