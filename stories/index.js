@@ -10,6 +10,8 @@ import MovieHeader from "../src/components/headerMovie";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
+import SimilarMovies from "../src/components/similarMovies"
+import MovieReviews from "../src/components/movieReviews"
 import { action } from "@storybook/addon-actions";
 
 const sample = {
@@ -145,6 +147,10 @@ storiesOf("Home Page/MovieList", module)
 
 storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
   <MovieDetails movie={sample} />
+));
+
+storiesOf("Movie Details Page/SimilarMovies", module).add("default", () => (
+  <SimilarMovies movie={sample} />
 ));
 
 storiesOf("Movie Details Page/MovieHeader", module)

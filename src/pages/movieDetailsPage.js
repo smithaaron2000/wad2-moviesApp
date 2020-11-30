@@ -3,7 +3,10 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
+import SimilarMovie from "../components/similarMovies";
+import Credits from "../components/credits"
 import useMovie from "../hooks/useMovie";
+
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -38,6 +41,9 @@ const MoviePage = props => {
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
         />
+        <Credits movie={movie} />
+        <SimilarMovie movie={movie} />
+        
       </>
     ) : (
       <p>Waiting for movie details</p>

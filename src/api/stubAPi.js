@@ -4,16 +4,18 @@ class StubAPI {
         this.watchList = [];
     }
 
-    add(movie) {
+    add(movie, upcoming) {
         this.favoriteMovies.push(movie);
-    }
-
-    add(upcoming) {
         this.watchList.push(upcoming);
     }
 
-    getAll() {
-        return this.favoriteMovies;
+    // add(upcoming) {
+    //     this.watchList.push(upcoming);
+    // }
+
+   getAll() {
+        return this.favoriteMovie;
+
     }
 
     getAll() {

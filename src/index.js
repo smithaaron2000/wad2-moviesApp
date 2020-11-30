@@ -12,6 +12,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WatchListMoviesPage from "./pages/watchListMoviesPage";
+import TopRatedMoviesPage from "./pages/topRatedMoviesPage"
 
 
 const App = () => {
@@ -21,9 +22,9 @@ const App = () => {
     <SiteHeader />      {/* New Header  */}
       <div className="container-fluid">
       <MoviesContextProvider>
-        {/* <UpcomingMoviesContextProvider> */}
       <GenresContextProvider>
         <Switch>
+        <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
         <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
@@ -34,7 +35,6 @@ const App = () => {
           <Redirect from="*" to="/" />
         </Switch>
         </GenresContextProvider>
-        {/* </UpcomingMoviesContextProvider> */}
         </MoviesContextProvider>
       </div>
     </div>
