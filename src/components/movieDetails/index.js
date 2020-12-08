@@ -1,5 +1,7 @@
 import React from "react";
+import similarMovies from "../similarMovies";
 import "./movieDetails.css";
+import { Link } from "react-router-dom";
 
 export default ({ movie }) => {
   return (
@@ -61,6 +63,13 @@ export default ({ movie }) => {
           </li>
         ))}
       </ul>
+      <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link className="nav-link text-black" to="/movies/${id}/similar">
+              Similar Movies
+            </Link>
+          </li>
+          </ul>
       
     </>
   );

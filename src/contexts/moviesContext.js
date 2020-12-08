@@ -13,16 +13,20 @@ const reducer = (state, action) => {
         ),
 
         upcoming: [...state.upcoming],
+        //similar: [...state.similar],
         toprated: state.toprated.map((m) =>
         m.id === action.payload.movie.id ? { ...m, favorite: true } : m
       ),
       };
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated] };
+      return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated], /*similar: [...state.similar]*/ };
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies], toprated: [...state.toprated] };
-      case "load-toprated":
-      return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming] };
+      return { upcoming: action.payload.movies, movies: [...state.movies], toprated: [...state.toprated], /*similar: [...state.similar]*/ };
+    case "load-toprated":
+      return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming], /*similar: [...state.similar]*/ };
+    // case "load-similar":
+    //     return { similar: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming] };
+      
     
     case "add-review":
       return {
@@ -84,12 +88,26 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // useEffect(() => {
+  //   getSimilarMovies().then((movies) => {
+  //     dispatch({ type: "load-similar", payload: { movies } });
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  // useEffect(() => {
+  //   getSimilarMovies(movie.id).then(similarMovies => {
+  //     setSimilars(similarMovies);
+  //   });
+  // }, []);
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
         toprated: state.toprated,
+        //similar: state.similar,
         addToFavorites: addToFavorites,
         addReview: addReview,
         addToWatchList: addToWatchList,

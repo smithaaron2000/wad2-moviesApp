@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 //import { Link } from "react-router-dom";
-import { getCredits } from "../../api/tmdb-api";
+import { getPersonMovieCredits } from "../../api/tmdb-api";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default ({ movie }) => {
-  const [credits, setCredits] = useState([]);
+export default ({ person }) => {
+  const [personCredits, setPersonMovieCredits] = useState([]);
 
   useEffect(() => {
-    getCredits(movie.id).then(credits => {
-      setCredits(credits);
+    getPersonMovieCredits(person.id).then(personCredits => {
+      setPersonMovieCredits(personCredits);
     });
   }, []);
   return(
     <div>
-      <h3>Credits (Cast and Crew)</h3>
+      <h3>Movie Credits</h3>
       <div className= "row movies bg-info">
-        {credits.map(r => {
+        {personCredits.map(r => {
 
   return(
 
@@ -25,19 +25,19 @@ export default ({ movie }) => {
       {/* <Link to={`/credits/${r.id}`}> */}
         <img
           className="card-img-tag center "
-          alt={r.name}
+          alt={r.title}
           src={
-            r.profile_path
-              ? `https://image.tmdb.org/t/p/w500/${r.profile_path}`
+            r.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${r.poster_path}`
               : "./film-poster-placeholder.png"
           }
         />
         {/* </Link> */}
         <div className="card-body">
-          <h4 className="card-title ">{r.name}</h4>
+          <h4 className="card-title ">{r.title}</h4>
           <p>
             <FontAwesomeIcon icon={["fas", "calendar"]} />
-            <span> {r.character}</span>
+            <span> {r.release_date}</span>
           </p>
         </div>
       </div>
