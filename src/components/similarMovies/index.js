@@ -14,7 +14,6 @@ export default ({ movie }) => {
   }, []);
   return(
     <div>
-      <h3>Similar Movies</h3>
       <div className= "row movies bg-info">
         {similarMovies.map(r => {
 

@@ -13,11 +13,19 @@ const reducer = (state, action) => {
         ),
 
         upcoming: [...state.upcoming],
-        //similar: [...state.similar],
-        toprated: state.toprated.map((m) =>
-        m.id === action.payload.movie.id ? { ...m, favorite: true } : m
-      ),
+        toprated: [...state.toprated]
       };
+      // case "add-favorite-from-toprated":
+      //   return {
+      //     movies: state.movies.map((m) =>
+      //       m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+      //     ),
+  
+      //     upcoming: [...state.upcoming],
+      //     toprated: state.toprated.map((m) =>
+      //     m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+      //   ),
+      //   };
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated], /*similar: [...state.similar]*/ };
     case "load-upcoming":

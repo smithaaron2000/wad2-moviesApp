@@ -14,7 +14,6 @@ export default ({ movie }) => {
   }, []);
   return(
     <div>
-      <h3>Credits (Cast and Crew)</h3>
       <div className= "row movies bg-info">
         {credits.map(r => {
 

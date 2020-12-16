@@ -41,8 +41,56 @@ const MoviePage = props => {
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
         />
-        <Credits movie={movie} />
-        <SimilarMovie movie={movie} />
+        <br/>
+        <div className="row">
+          <div className="col-12 ">
+            {!props.history.location.pathname.endsWith("/credits") ? (
+              <Link
+                className="btn btn-primary btn-block active"
+                to={`/movies/${id}/credits`}
+              >
+                Show Credits
+              </Link>
+            ) : (
+              <Link
+                className="btn btn-primary btn-block active"
+                to={`/movies/${id}`}
+              >
+                Hide Credits 
+              </Link>
+            )}
+          </div>
+        </div>
+        <Route
+          path={`/movies/:id/credits`}
+          render={props => <Credits movie={movie} {...props} />}
+        />
+        <br/>
+        <div className="row">
+          <div className="col-12 ">
+            {!props.history.location.pathname.endsWith("/similar") ? (
+              <Link
+                className="btn btn-primary btn-block active"
+                to={`/movies/${id}/similar`}
+              >
+                Show Similar Movies
+              </Link>
+            ) : (
+              <Link
+                className="btn btn-primary btn-block active"
+                to={`/movies/${id}`}
+              >
+                Hide Similar Movies 
+              </Link>
+            )}
+          </div>
+        </div>
+        <Route
+          path={`/movies/:id/similar`}
+          render={props => <SimilarMovie movie={movie} {...props} />}
+        />
+        {/* <Credits movie={movie} /> */}
+        {/* <SimilarMovie movie={movie} /> */}
         
       </>
     ) : (
