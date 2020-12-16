@@ -8,6 +8,7 @@ const PeopleListPage = () => {
   const context = useContext(PeopleContext);
   const people = context.people;
 
+
   return (
       <PeoplePageTemplate 
         name='No. People'

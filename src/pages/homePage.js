@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
 import AddToFavoriteButton from '../components/buttons/addToFavorites'
+import Profile from '../components/profiles/profile';
 
 
 const MovieListPage = () => {
@@ -11,7 +12,9 @@ const MovieListPage = () => {
   });
 
   return (
-      <PageTemplate 
+    <>
+    <Profile />
+      <PageTemplate
         title='No. Movies'
         movies={movies}
         action={(movie) => {
@@ -19,6 +22,7 @@ const MovieListPage = () => {
           
         }}
       />
+      </>
   );
 };
 

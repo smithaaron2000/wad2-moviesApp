@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch  } from "react-router-dom";
 import FavoritesMoviesPage from './pages/favoritesMoviesPage'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
@@ -18,9 +18,17 @@ import PopularPeoplePage from "./pages/popularPeoplePage";
 import PeopleContextProvider from "./contexts/peopleContext";
 import PersonDetailsPage from "./pages/personDetailsPage";
 import ContactUsPage from "./pages/contactUsPage";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+//import PrivateRoute from "./components/routes/privateRoutes";
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const App = () => {
+  const { isLoading } = useAuth0();
+
+  if (isLoading) return <div>Loading...</div>
+
   return (
     <BrowserRouter>
     <div className="jumbotron">
@@ -52,4 +60,13 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Auth0Provider
+    domain = { domain }
+    clientId = { clientId }
+    redirectUri = {window.location.origin}>
+<App /> 
+</Auth0Provider>,
+document.getElementById("root"));
+
+//ReactDOM.render(<App />, document.getElementById("root"));
