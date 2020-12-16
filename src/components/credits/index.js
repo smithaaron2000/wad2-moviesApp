@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getCredits } from "../../api/tmdb-api";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +22,7 @@ export default ({ movie }) => {
 
     <div className="col-sm-3">
       <div className="card  bg-white">
-      {/* <Link to={`/credits/${r.id}`}> */}
+      <Link to={`/people/popularpeople/${r.id}`}>
         <img
           className="card-img-tag center "
           alt={r.name}
@@ -32,11 +32,11 @@ export default ({ movie }) => {
               : "./film-poster-placeholder.png"
           }
         />
-        {/* </Link> */}
+        </Link>
         <div className="card-body">
           <h4 className="card-title ">{r.name}</h4>
           <p>
-            <FontAwesomeIcon icon={["fas", "calendar"]} />
+            <FontAwesomeIcon icon={["fas", "user"]} />
             <span> {r.character}</span>
           </p>
         </div>

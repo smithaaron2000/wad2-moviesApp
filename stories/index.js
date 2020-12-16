@@ -12,9 +12,10 @@ import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import SimilarMovies from "../src/components/similarMovies"
 import MovieReviews from "../src/components/movieReviews"
+import Credits from "../src/components/credits"
 import { action } from "@storybook/addon-actions";
 
-const sample = {
+const sampleMovie = {
   adult: false,
   backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
   belongs_to_collection: {
@@ -95,18 +96,19 @@ const sample = {
   vote_count: 9692
 };
 
+
 storiesOf("Home Page/MovieCard", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => (
     <MovieCard
-      movie={sample}
+      movie={sampleMovie}
       action={movie => <button className="btn w-100 btn-primary">Test</button>}
     />
   ))
   .add("exception", () => {
-    const sampleNoPoster = { ...sample, poster_path: undefined };
+    const sampleNoPoster = { ...sampleMovie, poster_path: undefined };
     return (
       <MovieCard
         movie={sampleNoPoster}
@@ -134,7 +136,7 @@ storiesOf("Home Page/MovieList", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => {
-    const movies = [sample, sample, sample, sample, sample];
+    const movies = [sampleMovie, sampleMovie, sampleMovie, sampleMovie, sampleMovie];
     return (
       <MovieList
         movies={movies}
@@ -145,16 +147,23 @@ storiesOf("Home Page/MovieList", module)
     );
   });
 
-storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
-  <MovieDetails movie={sample} />
-));
-
-storiesOf("Movie Details Page/SimilarMovies", module).add("default", () => (
-  <SimilarMovies movie={sample} />
-));
-
 storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
-  .add("default", () => <MovieHeader movie={sample} />);
+  .add("default", () => <MovieHeader movie={sampleMovie} />);
+
+  storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
+    <MovieDetails movie={sampleMovie} />
+  ));
+
+  storiesOf("Movie Details Page/Credits", module).add("default", () => (
+    <Credits movie={sampleMovie} />
+  ));
+
+  storiesOf("Movie Details Page/MovieReviews", module).add("default", () => (
+    <MovieReviews movie={sampleMovie} />
+  ));
+
+
+  

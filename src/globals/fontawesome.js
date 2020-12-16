@@ -6,9 +6,10 @@ import {
   faHome,
   faCalendar,
   faArrowCircleLeft,
-  faIdCard
+  faIdCard,
+  faUser
 
 
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add( faStar, faFilm, faVideo, faHome, faCalendar, faArrowCircleLeft, faIdCard);
+library.add( faStar, faFilm, faVideo, faHome, faCalendar, faArrowCircleLeft, faIdCard, faUser);

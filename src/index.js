@@ -17,6 +17,7 @@ import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import PopularPeoplePage from "./pages/popularPeoplePage";
 import PeopleContextProvider from "./contexts/peopleContext";
 import PersonDetailsPage from "./pages/personDetailsPage";
+import ContactUsPage from "./pages/contactUsPage";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       <GenresContextProvider>
         <PeopleContextProvider>
         <Switch>
+           <Route exact path="/contactus" component ={ContactUsPage} />
           <Route exact path="/people/popularpeople/:id" component={PersonDetailsPage} />
           <Route exact path="/people/popularpeople" component={PopularPeoplePage} />
         <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />

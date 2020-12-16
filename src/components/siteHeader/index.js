@@ -57,6 +57,11 @@ const SiteHeader = () => {
               Popular People 
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/contactus">
+              Contact Us 
+            </Link>
+          </li>
         </ul>
       </nav>
     </nav>

@@ -17,6 +17,7 @@ const TopRatedMovieListPage = () => {
           // return <AddToFavoritesButton movie={toprated} /> 
         }}
       />
+      
   );
 };
 

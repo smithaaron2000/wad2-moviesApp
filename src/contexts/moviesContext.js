@@ -38,6 +38,7 @@ const reducer = (state, action) => {
         upcoming: [...state.upcoming],
         toprated: [...state.toprated],
       };
+
       case "add-watchlist":
       return {
         upcoming: state.upcoming.map((m) =>
@@ -49,6 +50,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+      
 
 const MoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], toprated: [] });

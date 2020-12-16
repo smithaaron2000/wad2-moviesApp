@@ -63,13 +63,13 @@ export default ({ movie }) => {
           </li>
         ))}
       </ul>
-      <ul className="navbar-nav">
+      {/* <ul className="navbar-nav">
           <li className="nav-item">
             <Link className="nav-link text-black" to="/movies/${id}/similar">
               Similar Movies
             </Link>
           </li>
-          </ul>
+          </ul> */}
       
     </>
   );
