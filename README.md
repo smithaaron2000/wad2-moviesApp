@@ -1,10 +1,9 @@
 # Assignment 1 - ReactJS app.
 
 Name: Aaron Tierney Smith
+Student Number: 20084822
 
 ## Features.
-
-...... A bullet-point list of the ADDITIONAL user features you have implemented for the  Movies Fan app ......,
  
  + Feature 1 - Watch List Page created: add movies from the upcoming movies to a Watch List page.
  + Feature 2 - Top Rated Movies endpoint: Shows the Top Rated Movies in a new Top Rated page.
@@ -16,16 +15,8 @@ Name: Aaron Tierney Smith
  + Feature 8 - Contact Form where the data received is managed in Firebase (Cloud Firestore).
  + Feature 9 - Public/Private Routes.
  + Feature 10 - External Authentication through the use of Auth0 - you must be logged in to access certain features.
- + etc
- + etc
-
-## Setup requirements (If required).
-
-...... A brief explanation of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
 
 ## API Data Model.
-
-..... List the additional TMDB endpoints used in your assignment, e.g.
 
 + https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 + https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
@@ -38,48 +29,89 @@ Name: Aaron Tierney Smith
 
 ### Component catalogue (If required).
 
-....... Insert a screenshot from the Storybook UI, hi-light stories relating to new/modified components you developed - see example screenshot below] .......
-
-![][stories]
+![][storybookFeatures]
 
 ### UI Design.
 
-...... Insert screenshots of the new/modified views you have added to the Movies Fan app. Include a caption for each one clearly stating its purpose and any user interaction it supports ........
+![][watchList]
+>Page displaying movies added to watch list from upcoming movies.
 
-![][movieDetail]
->Shows detailed information on a movie. Clicking the 'Show Reviews' button will display extracts from critic reviews.
+![][topRated]
+>Page displaying the top rated movies.
 
-![][review]
->Shows the full text for a movie review. 
+![][cast]
+>Displays the Cast on the movie Details page by pressing the "Show Credits" button.
+
+![][similar]
+>Displays similar Movies on the movie Details page by pressing the "Show Similar Movies" button.
+
+![][popularPeople]
+>Page displaying popular people.
+
+![][personDetails]
+> Page displaying person details and their TV/Movie Credits
+
+![][contactUs]
+>Displays the contact form.
 
 ## Routing.
 
-...... Insert a list of the additional routes supported by your Movies Fan app. If relevant, specify which of the routes require authentication, i.e. protected/private.
-
-+ /movies/favorites (protected) - displays the user's favorite movies selection.
-+ /reviews/:id (public) - displays the full text of a movie review.
-+ etc.
-+ etc.
++ /movies/watchlist (private) - displays all movies user added to their watch list.
++ /movies/toprated (private) - displays top rated movies.
++ /movies/movie.id/credits (public) - displays the credits of a specific movie.
++ /movies/movie.id/similar (public) - displays movies similar to a specific movie.
++ /people/popularpeople (public) - displays popular people.
++ /people/popularpeople/person.id (public) - displays the details and TV/Movie Credits of a specific person.
++ /contactus (public) - displays the contact form.
 
 ### Data hyperlinking.
 
-.... Use screenshots to illustrate where data hyperlinking is present in your views - include captions.
+![][movieCastToPersonDetails]
+> Clicking a person card in the credits of a movie redirects you to the display of that person's details.
 
-![][cardLink]
-> Clicking a card causes the display of that movie's details.
+![][personToMovies]
+>Clicking a movie card in person details redirects you to the display of that movie details.
 
-![][reviewLink]
->Clicking the 'Full Review' for a review extract will display the full text of the review
+![][popularPeopleToPersonDetails]
+>Clicking a person card in popular people page redirects you to the display of that person details.
+
+![][similarMoviesToMovieDetails]
+>Clicking a movie card in similar movies redirects you to the display of that movie details.
+
+![][topRatedToMovieDetails]
+>Clicking a movie card in the top rated page redirects you to the display of that movie details.
 
 ## Independent learning (If relevant).
 
-. . . . . Briefly mention each technologies/techniques used in your project codebase that were not covered in the lectures/labs. Provide source code filename references to support your assertions and include reference material links (articles/blogs).
++ I created a Contact Form where the data was sent to Firebase (Cloud Firestore).
+> https://www.youtube.com/watch?v=RKj3OjgftXc&t=1125s
+
+> src\components\contactForm
+> src\components\firebase\firebase.js
+
++ I implemented Authentication through the use of Auth0, thus implementing private routes.
+> https://www.youtube.com/watch?v=MqczHS3Z2bc
+> https://www.youtube.com/watch?v=NuCZgR09csE
+
+> src\components\buttons\loginButton.js
+> src\components\buttons\logoutButton.js
+> src\components\profiles\profile.js
+> src\components\routes\privateRoutes.js
+
 
 ---------------------------------
 
-[model]: ./data.jpg
-[movieDetail]: ./public/movieDetail.png
-[review]: ./public/review.png
-[reviewLink]: ./public/reviewLink.png
-[cardLink]: ./public/cardLink.png
-[stories]: ./public/storybook.png
+[storybookFeatures]: ./public/storybookFeatures.png
+[movieCastToPersonDetails]: ./public/movieCastToPersonDetailsLink.png
+[personToMovies]: ./public/personToMoviesLink.png
+[popularPeopleToPersonDetails]: ./public/popularPeopleToPersonDetailsLink.png
+[similarMoviesToMovieDetails]: ./public/similarMoviesToMovieDetailsLink.png
+[topRatedToMovieDetails]: ./public/topRatedMoviesLink.png
+
+[watchList]: ./public/watchList.png
+[topRated]: ./public/topRated.png
+[similar]: ./public/similarMovies.png
+[cast]: ./public/castMovieDetailsPage.png
+[popularPeople]: ./public/popularPeoplePage.png
+[personDetails]: ./public/personDetails.png
+[contactUs]: ./public/contactUs.png
