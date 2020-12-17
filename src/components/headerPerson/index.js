@@ -1,5 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
 
 const PersonHeader = ({ person }) => {
@@ -9,9 +8,6 @@ const PersonHeader = ({ person }) => {
         <h2>
           {person.name}
           {"  "}
-          <a href={person.homepage}>
-            <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
-          </a>
         </h2>
       </div>
     </div>

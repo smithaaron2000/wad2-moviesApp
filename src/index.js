@@ -19,7 +19,7 @@ import PeopleContextProvider from "./contexts/peopleContext";
 import PersonDetailsPage from "./pages/personDetailsPage";
 import ContactUsPage from "./pages/contactUsPage";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-//import PrivateRoute from "./components/routes/privateRoutes";
+import PrivateRoute from "./components/routes/privateRoutes";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -41,12 +41,12 @@ const App = () => {
            <Route exact path="/contactus" component ={ContactUsPage} />
           <Route exact path="/people/popularpeople/:id" component={PersonDetailsPage} />
           <Route exact path="/people/popularpeople" component={PopularPeoplePage} />
-        <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
-        <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
+        <PrivateRoute exact path="/movies/toprated" component={TopRatedMoviesPage} />
+        <PrivateRoute exact path="/movies/watchlist" component={WatchListMoviesPage} />
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+        <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route path="/reviews/:id" component={MovieReviewPage} />
-          <Route exact path="/movies/favorites" component={FavoritesMoviesPage} />
+          <PrivateRoute exact path="/movies/favorites" component={FavoritesMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />

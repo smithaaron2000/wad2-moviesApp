@@ -4,16 +4,18 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import MovieCard from "../src/components/movieCard";
 import FilterControls from "../src/components/filterControls";
 import MoviesHeader from "../src/components/headerMovieList";
+import PersonHeader from "../src/components/headerPersonList";
 import MovieList from "../src/components/movieList";
 import MovieDetails from "../src/components/movieDetails";
+import PersonDetails from "../src/components/personDetails";
 import MovieHeader from "../src/components/headerMovie";
-import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
-import SimilarMovies from "../src/components/similarMovies"
-import MovieReviews from "../src/components/movieReviews"
-import Credits from "../src/components/credits"
+
 import { action } from "@storybook/addon-actions";
+import PersonCard from "../src/components/personCard";
+import PersonListHeader from "../src/components/headerPersonList";
+import PeopleList from "../src/components/personList";
 
 const sampleMovie = {
   adult: false,
@@ -96,6 +98,28 @@ const sampleMovie = {
   vote_count: 9692
 };
 
+const samplePerson = {
+  "adult": false,
+  "also_known_as": [
+    "안야 테일러-조이",
+    "Άνια Τέιλορ-Τζόι",
+    "Аня Тейлор-Джой",
+    "安雅·泰勒-乔伊"
+  ],
+  "biography": "Anya Josephine Marie Taylor-Joy (born 16 April 1996) is an American-born Argentine-British actress. She first became known for making appearances on the fantasy series Atlantis (2015), and had her breakthrough with the period horror film The Witch (2015), for which she earned several accolades. She gained further recognition and praise for her role as Casey Cooke in the psychological horror films Split (2016) and Glass (2019), Lily Reynolds in the black comedy Thoroughbreds (2017) and Emma Woodhouse in the comedy-drama Emma (2020). She garnered critical acclaim for her performance as Beth Harmon in the Netflix miniseries The Queen's Gambit (2020).",
+  "birthday": "1996-04-16",
+  "deathday": null,
+  "gender": 1,
+  "homepage": null,
+  "id": 1397778,
+  "imdb_id": "nm5896355",
+  "known_for_department": "Acting",
+  "name": "Anya Taylor-Joy",
+  "place_of_birth": "Miami, Florida, USA",
+  "popularity": 42.657,
+  "profile_path": "/hwpqQBzL3vVSppnMIINc2RCHXgn.jpg"
+};
+
 
 storiesOf("Home Page/MovieCard", module)
   .addDecorator(story => (
@@ -157,12 +181,47 @@ storiesOf("Movie Details Page/MovieHeader", module)
     <MovieDetails movie={sampleMovie} />
   ));
 
-  storiesOf("Movie Details Page/Credits", module).add("default", () => (
-    <Credits movie={sampleMovie} />
-  ));
+  //////////////////////////////////////////////////////
 
-  storiesOf("Movie Details Page/MovieReviews", module).add("default", () => (
-    <MovieReviews movie={sampleMovie} />
+  storiesOf("Popular People Page/PersonCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <PersonCard
+      person={samplePerson}
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...samplePerson, profile_path: undefined };
+    return (
+      <PersonCard
+        person={sampleNoPoster}
+      />
+    );
+  });
+
+storiesOf("Popular People Page/PersonList", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const people = [samplePerson, samplePerson, samplePerson, samplePerson, samplePerson];
+    return (
+      <PeopleList
+        people={people}
+      />
+    );
+  });
+
+  storiesOf("Person Details Page/PersonHeader", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <PersonHeader person={samplePerson} />);
+
+  storiesOf("Person Details Page/PersonDetails", module).add("default", () => (
+    <PersonDetails person={samplePerson} />
   ));
 
 

@@ -78,9 +78,6 @@ const SiteHeader = () => {
           <li className="nav-item">
             <AuthNav/>
           </li>
-          {/* <li className="nav-item">
-            <LogoutButton />
-          </li> */}
         </ul>
       </nav>
     </nav>

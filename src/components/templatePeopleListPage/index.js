@@ -4,10 +4,8 @@ import PeopleList from "../personList";
 import PeopleFilterControls from "../peopleFilterControls";
 
 
-const PeopleListPageTemplate = ({people, name, action}) => {
+const PeopleListPageTemplate = ({people, name}) => {
   const [nameFilter, setNameFilter] = useState("");
-  //const [genderFilter, setGenderFilter] = useState("0");
-  //const gender = Number(genderFilter)
   let displayedPeople = people
     .filter(m => {
       return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
@@ -15,7 +13,6 @@ const PeopleListPageTemplate = ({people, name, action}) => {
 
     const handleChange = (type, value) => {
       if (type === "name") setNameFilter(value);
-      //else setGenderFilter(value);
     };
 
   return (
@@ -23,7 +20,6 @@ const PeopleListPageTemplate = ({people, name, action}) => {
       <PersonListHeader name={name} numPeople={displayedPeople.length} />
       <PeopleFilterControls onUserInput={handleChange} numPeople={displayedPeople.length}/>
       <PeopleList
-       action={action}
        people={displayedPeople}
       ></PeopleList>
     </>

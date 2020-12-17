@@ -6,13 +6,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const MovieListPage = () => {
   const context = useContext(MoviesContext);
-  const { isAuthenticated } = useAuth0();
-  const movies = context.upcoming.filter((m) => {
+    const movies = context.upcoming.filter((m) => {
     return !("watchlist" in m);
   });
 
   return (
-   isAuthenticated && (
       <PageTemplate 
         title='No. Movies'
         movies={movies}
@@ -20,7 +18,6 @@ const MovieListPage = () => {
           return <AddToWatchListButton movie={upcoming} /> 
         }}
       />
-   )
   );
 };
 

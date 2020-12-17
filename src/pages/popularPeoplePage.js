@@ -13,10 +13,6 @@ const PeopleListPage = () => {
       <PeoplePageTemplate 
         name='No. People'
         people={people}
-        action={(person) => {
-          //return <AddToFavoriteButton movie={movie} /> 
-          
-        }}
       />
   );
 };
