@@ -15,27 +15,13 @@ const reducer = (state, action) => {
         upcoming: [...state.upcoming],
         toprated: [...state.toprated]
       };
-      // case "add-favorite-from-toprated":
-      //   return {
-      //     movies: state.movies.map((m) =>
-      //       m.id === action.payload.movie.id ? { ...m, favorite: true } : m
-      //     ),
-  
-      //     upcoming: [...state.upcoming],
-      //     toprated: state.toprated.map((m) =>
-      //     m.id === action.payload.movie.id ? { ...m, favorite: true } : m
-      //   ),
-      //   };
+     
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated], /*similar: [...state.similar]*/ };
+      return { movies: action.payload.movies, upcoming: [...state.upcoming], toprated: [...state.toprated] };
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies], toprated: [...state.toprated], /*similar: [...state.similar]*/ };
+      return { upcoming: action.payload.movies, movies: [...state.movies], toprated: [...state.toprated] };
     case "load-toprated":
-      return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming], /*similar: [...state.similar]*/ };
-    // case "load-similar":
-    //     return { similar: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming] };
-      
-    
+      return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -46,7 +32,6 @@ const reducer = (state, action) => {
         upcoming: [...state.upcoming],
         toprated: [...state.toprated],
       };
-
       case "add-watchlist":
       return {
         upcoming: state.upcoming.map((m) =>
@@ -81,35 +66,20 @@ const MoviesContextProvider = (props) => {
     getMovies().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getUpcomingMovies().then((movies) => {
       dispatch({ type: "load-upcoming", payload: { movies } });
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     getTopRatedMovies().then((movies) => {
       dispatch({ type: "load-toprated", payload: { movies } });
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   getSimilarMovies().then((movies) => {
-  //     dispatch({ type: "load-similar", payload: { movies } });
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // useEffect(() => {
-  //   getSimilarMovies(movie.id).then(similarMovies => {
-  //     setSimilars(similarMovies);
-  //   });
-  // }, []);
 
   return (
     <MoviesContext.Provider
@@ -117,7 +87,6 @@ const MoviesContextProvider = (props) => {
         movies: state.movies,
         upcoming: state.upcoming,
         toprated: state.toprated,
-        //similar: state.similar,
         addToFavorites: addToFavorites,
         addReview: addReview,
         addToWatchList: addToWatchList,

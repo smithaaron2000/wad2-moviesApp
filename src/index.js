@@ -13,7 +13,6 @@ import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import WatchListMoviesPage from "./pages/watchListMoviesPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
-//import SimilarMoviesPage from "./pages/similarMoviesPage";
 import PopularPeoplePage from "./pages/popularPeoplePage";
 import PeopleContextProvider from "./contexts/peopleContext";
 import PersonDetailsPage from "./pages/personDetailsPage";

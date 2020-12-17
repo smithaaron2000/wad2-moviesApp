@@ -14,12 +14,13 @@ const Contact = () => {
         setLoader(true);
 
         db.collection('contacts').add({
+            
             name:name,
             email:email,
             message:message,
         })
         .then(() => {
-            alert("Message has been submitted, thank you!");
+            alert("We have received your feedback, thank you!");
             setLoader(false);
         })
         .catch((error) => {
@@ -36,13 +37,13 @@ const Contact = () => {
         <form className ="form" onSubmit={handleSubmit}>
             <h1>Contact Form</h1>
             <label>Name</label>
-            <input placeholder = "Name" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input placeholder = "Name" value={name} onChange={(e) => setName(e.target.value)} required />
 
             <label>Email</label>
-            <input placeholder = "Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input placeholder = "Email" value={email} type = "email" onChange={(e) => setEmail(e.target.value)} required />
 
-            <label>Message</label>
-            <textarea placeholder = "Message" value={message} onChange={(e) => setMessage(e.target.value)}/>
+            <label>Feedback</label>
+            <textarea placeholder = "Feedback..." value={message} onChange={(e) => setMessage(e.target.value)} required />
 
             <button type="submit" style={{ background : loader ? "#ccc " : "rgb(2,2,110)" }}> Submit</button>
 

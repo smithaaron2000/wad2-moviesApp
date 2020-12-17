@@ -1,9 +1,7 @@
 import React from "react";
-import { withRouter, Link, Route } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PersonDetails from "../components/personDetails";
 import PersonPageTemplate from "../components/templatePersonPage";
-//import MovieReviews from "../components/movieReviews";
-//import SimilarMovie from "../components/similarMovies";
 import PersonMovieCredits from "../components/personCredits"
 import usePerson from "../hooks/usePerson";
 

@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
 import AddReviewButton from '../components/buttons/addReview'
 import {MoviesContext} from '../contexts/moviesContext'
-import { useAuth0 } from "@auth0/auth0-react";
 
 const WatchListMoviesPage = props => {
   const context = useContext(MoviesContext);

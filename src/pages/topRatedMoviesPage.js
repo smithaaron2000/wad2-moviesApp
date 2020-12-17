@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
-import { useAuth0 } from "@auth0/auth0-react";
-
 
 const TopRatedMovieListPage = () => {
   const context = useContext(MoviesContext);

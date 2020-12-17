@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import PeoplePageTemplate from '../components/templatePeopleListPage'
 import {PeopleContext} from '../contexts/peopleContext'
-//import AddToFavoriteButton from '../components/buttons/addToFavorites'
-
 
 const PeopleListPage = () => {
   const context = useContext(PeopleContext);
